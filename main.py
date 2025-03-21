@@ -88,14 +88,30 @@ import random
 
 # task 7
 
-evaluation = int(input("Enter your evaluation 0/100: "))
-if evaluation > 0 and evaluation < 50:
-	print("unsatisfactorily")
-elif evaluation >= 50 and evaluation < 70:
-	print("satisfactorily")
-elif evaluation >= 70 and evaluation < 90:
-	print("well")
-elif evaluation >= 90 and evaluation < 101:
-	print("excellent")
+# evaluation = int(input("Enter your evaluation 0/100: "))
+# if evaluation > 0 and evaluation < 50:
+# 	print("unsatisfactorily")
+# elif evaluation >= 50 and evaluation < 70:
+# 	print("satisfactorily")
+# elif evaluation >= 70 and evaluation < 90:
+# 	print("well")
+# elif evaluation >= 90 and evaluation < 101:
+# 	print("excellent")
+# else:
+# 	print("uncorrect answer")
+
+# task 8
+first_num = int(input("Enter first number: "))
+second_num = int(input("Enter second number: "))
+if second_num == 0:
+	print("division by zero is not possible")
 else:
-	print("uncorrect answer")
+	action = str(input("Enter what action did you want to do (* / + -): "))
+	if action == "+":
+		print(first_num + second_num)
+	elif action == "-":
+		print(first_num - second_num)
+	elif action == "*":
+		print(first_num * second_num)
+	elif action == "/":
+		print(first_num / second_num)	
