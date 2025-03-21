@@ -45,13 +45,26 @@ import random
 
 
 
-min_num = int(input("enter smaller number: "))
-max_num = int(input("enter larger number: "))
-# print(f"{max_num} {min_num}")
-norm_num = max_num - 1
+# min_num = int(input("enter smaller number: "))
+# max_num = int(input("enter larger number: "))
+# norm_num = max_num - 1
 
 
-while min_num != norm_num:
-	min_num+=1
-	print(min_num)
+# while min_num != norm_num:
+# 	min_num+=1
+# 	print(min_num)
 
+
+
+
+
+# task 5
+start_num = int(input("enter any number: "))
+a = -1
+while a != start_num:
+	
+	if a < start_num:
+		a += 2
+		print(a)
+	elif a > start_num:
+		break
