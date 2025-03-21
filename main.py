@@ -59,12 +59,25 @@ import random
 
 
 # task 5
-start_num = int(input("enter any number: "))
-a = -1
-while a != start_num:
+# start_num = int(input("enter any number: "))
+# a = -1
+# while a != start_num:
 	
-	if a < start_num:
-		a += 2
-		print(a)
-	elif a > start_num:
-		break
+# 	if a < start_num:
+# 		a += 2
+# 		print(a)
+# 	elif a > start_num:
+# 		break
+
+
+
+
+
+# task 6
+n = int(input("Enter the number: "))
+factorial = 1
+
+for i in range(1, n + 1):
+    factorial *= i
+
+print("factorial:", factorial)
