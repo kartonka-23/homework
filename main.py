@@ -74,10 +74,28 @@ import random
 
 
 # task 6
-n = int(input("Enter the number: "))
-factorial = 1
+# n = int(input("Enter the number: "))
+# factorial = 1
 
-for i in range(1, n + 1):
-    factorial *= i
+# for i in range(1, n + 1):
+#     factorial *= i
 
-print("factorial:", factorial)
+# print("factorial:", factorial)
+
+
+
+
+
+# task 7
+
+evaluation = int(input("Enter your evaluation 0/100: "))
+if evaluation > 0 and evaluation < 50:
+	print("unsatisfactorily")
+elif evaluation >= 50 and evaluation < 70:
+	print("satisfactorily")
+elif evaluation >= 70 and evaluation < 90:
+	print("well")
+elif evaluation >= 90 and evaluation < 101:
+	print("excellent")
+else:
+	print("uncorrect answer")
