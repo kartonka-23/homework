@@ -1,71 +1,45 @@
-class Product:
-    def __init__(self, name, price, stock):
-        self.name = name
-        self.price = price
-        self.stock = stock
+from datetime import datetime
+
+class Task:
+    def __init__(self, title, description, deadline):
+        self.title = title
+        self.description = description
+        self.deadline = deadline
+        self.completed = False
+
+    def mark_completed(self):
+        self.completed = True
 
     def __str__(self):
-        return f"{self.name}: {self.price} грн, наявність: {self.stock} шт"
+        status = "Done" if self.completed else "Not done"
+        return f"{self.title} | {self.description} | Deadline: {self.deadline} | {status}"
 
-class Cart:
+
+class TaskManager:
     def __init__(self):
-        self.items = []
+        self.tasks = []
 
-    def add_product(self, product, quantity):
-        if product.stock >= quantity:
-            self.items.append((product, quantity))
-            product.stock -= quantity
-            print(f"{quantity} {product.name} додано в кошик.")
-        else:
-            print(f"Немає достатньо товару '{product.name}' в наявності.")
+    def add_task(self, title, description, deadline):
+        task = Task(title, description, deadline)
+        self.tasks.append(task)
 
-    def remove_product(self, product, quantity):
-        for item in self.items:
-            if item[0] == product:
-                if item[1] >= quantity:
-                    self.items.remove(item)
-                    product.stock += quantity
-                    print(f"{quantity} {product.name} видалено з кошика.")
-                    return
-                else:
-                    print("В кошику немає такої кількості товару.")
-                    return
-        print(f"Товар {product.name} не знайдений у кошику.")
+    def delete_task(self, title):
+        self.tasks = [task for task in self.tasks if task.title != title]
 
-    def total_price(self):
-        total = sum(item[0].price * item[1] for item in self.items)
-        return total
+    def mark_task_completed(self, title):
+        for task in self.tasks:
+            if task.title == title:
+                task.mark_completed()
 
-    def checkout(self):
-        total = self.total_price()
-        print(f"Загальна вартість кошика: {total} грн")
-        self.items.clear()
-        print("Кошик очищено.")
-
-    def show_cart(self):
-        if not self.items:
-            print("Кошик порожній.")
-        else:
-            for item in self.items:
-                print(f"{item[1]} x {item[0].name} - {item[0].price * item[1]} грн")
-            print(f"Загальна вартість: {self.total_price()} грн")
+    def list_tasks(self):
+        for task in self.tasks:
+            print(task)
 
 
-
-product1 = Product("Ноутбук", 15000, 5)
-product2 = Product("Мишка", 400, 10)
-product3 = Product("Клавіатура", 800, 3)
-
-cart = Cart()
-
-cart.add_product(product1, 2)
-cart.add_product(product2, 1)
-cart.add_product(product3, 1)
-
-cart.show_cart()
-
-cart.remove_product(product2, 1)
-
-cart.show_cart()
-
-cart.checkout()
+if __name__ == "__main__":
+    manager = TaskManager()
+    manager.add_task("Math Homework", "Solve exercises 1-10", "2025-04-12")
+    manager.add_task("Buy groceries", "Milk, Bread, Eggs", "2025-04-11")
+    manager.list_tasks()
+    manager.mark_task_completed("Math Homework")
+    manager.list_tasks()
