@@ -1,26 +1,15 @@
-class Animal:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+class Test(object):
+    def __init__(self, arg):
+        super(ClassName, self).__init__()
+        self.kringe = kringe
+        
 
-    def speak(self):
-        return "Animal sound"
+class ClassName(Test):
+    def __init__(self, arg):
+        super(ClassName, self).__init__()
+        self.kringe2 = kringe2
 
-    def info(self):
-        return f"Name: {self.name}, Age: {self.age}"
+    def pokazuha()
+        print("elites varvars with rage")
 
-class Dog(Animal):
-    def speak(self):
-        return "Woof!"
-
-class Cat(Animal):
-    def speak(self):
-        return "Meow!"
-
-bobik = Dog("Bobik", 3)
-murka = Cat("Murka", 2)
-
-print(bobik.info())
-print(bobik.speak())
-print(murka.info())
-print(murka.speak())
+# завдання було тільки "Описати як створити наслідування" або "Навести приклад наслідування", а не використати
